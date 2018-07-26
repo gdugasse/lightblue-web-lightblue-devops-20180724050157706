@@ -8,6 +8,11 @@ var session = require('express-session');
 
 var index = require('./routes/index');
 
+var	images	= require('./routes/images');
+
+var	catalog	=	require('./routes/catalog');
+var	customer =	require('./routes/customer');
+
 var app = express();
 
 // view engine setup
@@ -26,6 +31,9 @@ app.use('/', express.static('public/resources'));
 app.use('/', express.static('public/stylesheets'));
 app.use('/bower_components', express.static('bower_components'));
 app.use('/image', express.static('image'));
+
+app.use('/catalog',	catalog);
+app.use('/customer', customer);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
